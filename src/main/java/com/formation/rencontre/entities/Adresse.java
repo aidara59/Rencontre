@@ -1,5 +1,4 @@
 package com.formation.rencontre.entities;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -127,6 +126,11 @@ public void setUtilisateur(List<Utilisateur> utilisateur) {
 
 public Adresse() {
 	
+}
+
+public static Object values() {
+	
+	return null;
 }
 
 }

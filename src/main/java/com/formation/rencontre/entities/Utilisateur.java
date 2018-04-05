@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "Utilisateur")
 public class Utilisateur {
@@ -25,7 +27,7 @@ public class Utilisateur {
 	@Column(name="prenom",nullable=false,length=50)
 	private String prenom;
 	@Column(name="dateDeNaissance")
-	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="YYYY-MM-dd")
 	private Date dateDeNaissance;
 	@Column(name="sexe",length=1)
 	private String sexe;
@@ -177,6 +179,10 @@ public class Utilisateur {
 	}
 	public Utilisateur() {
 		
+	}
+	public static Object values() {
+		
+		return null;
 	}
 
 }

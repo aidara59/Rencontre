@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 @Entity
 @Table(name = "Photo")
 public class Photo {
@@ -49,6 +50,14 @@ public String toString() {
 	return "Photo [idphoto=" + idphoto + ", lien=" + lien + ", note=" + note + "]";
 }
 public Photo() {
+	
+}
+public static Object values() {
+	
+	return null;
+}
+public void setUtilisateur(@Valid Utilisateur utilisateur2) {
+	// TODO Auto-generated method stub
 	
 }
 

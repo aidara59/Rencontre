@@ -54,5 +54,9 @@ public String toString() {
 public Centre_Interet() {
 	
 }
+public static Object values() {
+	
+	return null;
+}
 
 }

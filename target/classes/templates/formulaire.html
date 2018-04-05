@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>formulaire</title>
+</head>
+<body style="background:yellowgreen;">
+<form method="post" th:action="@{/formulaire}" >
+   <fieldset>
+    <legend>Utilisateur</legend>
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" th:field="*{utilisateur.nom}"/>
+    <p th:if="${#fields.hasErrors('utilisateur.nom')}" th:errors="*{utilisateur.nom}"></p><br>
+    
+     <label for="prenom"> Prénom </label>
+     <input type="text" id="prenom" th:field="*{utilisateur.prenom}" />
+     <p th:if="${#fields.hasErrors('utilisateur.prenom')}" th:errors="*{utilisateur.prenom}"></p><br>
+     
+     <label for="date">Date De Naissance</label>
+    <input type="date" id="date" th:field="*{utilisateur.dateDeNaissance}">
+     <p th:if="${#fields.hasErrors('utilisateur.dateDeNaissance')}" th:errors="*{utilisateur.dateDeNaissance}"></p><br>
+     
+      <label for="sexe"> Sexe </label>
+      <input type="text" id="sexe" th:field="*{utilisateur.sexe}"/>
+      <p th:if="${#fields.hasErrors('utilisateur.sexe')}" th:errors="*{utilisateur.sexe}"></p><br> 
+      
+      <label for="email"> Votre e-mail </label>
+      <input type="text"id="email" th:field="*{utilisateur.email}" />
+      <p th:if="${#fields.hasErrors('utilisateur.email')}" th:errors="*{utilisateur.email}"><br>
+      
+      <label for="motDePasse">Mot de passe :</label>
+      <input type="password" id="motDePasse" th:field="*{utilisateur.motDePasse}"/>
+      <p th:if="${#fields.hasErrors('utilisateur.motDePasse')}" th:errors="*{utilisateur.motDePasse}"><br>
+      
+      <label for="description">Description </label>
+      <input type="text" id="description" th:field="*{utilisateur.description}" />
+      <p th:if="${#fields.hasErrors('utilisateur.description')}" th:errors="*{utilisateur.description}"><br> 
+      
+      <label for="pseudo">Votre pseudo :</label>	
+      <input type="text" id="pseudo"  th:field="*{utilisateur.pseudo}" />
+      <p th:if="${#fields.hasErrors('utilisateur.pseudo')}" th:errors="*{utilisateur.pseudo}"><br>
+      
+      <label for="numerotel">Tel :</label>	
+      <input type="text" id="numerotel" th:field="*{utilisateur.numerotel}" />
+      <p th:if="${#fields.hasErrors('utilisateur.numerotel')}" th:errors="*{utilisateur.numerotel}"><br>
+      </fieldset>
+      <fieldset>
+      <legend>Adresse</legend>  
+     <label for="code_postal">Code postal </label>
+     <input type="text" id="code_postal" th:field="*{adresse.code_postal}" />
+     <p th:if="${#fields.hasErrors('adresse.code_postal')}" th:errors="*{adresse.code_postal}"></p><br>
+     
+     <label for="num_rue">numero de rue</label>
+    <input type="text" id="num_rue" th:field="*{adresse.num_rue}">
+     <p th:if="${#fields.hasErrors('adresse.num_rue')}" th:errors="*{adresse.num_rue}"></p><br>
+     
+      <label for="ville"> ville </label>
+      <input type="text" id="ville" th:field="*{adresse.ville}"/>
+      <p th:if="${#fields.hasErrors('adresse.ville')}" th:errors="*{adresse.ville}"></p><br> 
+      
+      <label for="nom_rue"> nom de rue </label>
+      <input type="text"id="nom_rue" th:field="*{adresse.nom_rue}" />
+      <p th:if="${#fields.hasErrors('adresse.nom_rue')}" th:errors="*{adresse.nom_rue}"><br>
+      
+      <label for="prefixe">prefixe :</label>
+      <input type="text" id="prefixe" th:field="*{adresse.prefixe}"/>
+      <p th:if="${#fields.hasErrors('adresse.prefixe')}" th:errors="*{adresse.prefixe}"><br>
+      
+      <label for="complement">complement </label>
+      <input type="text" id="complement" th:field="*{adresse.complement}" />
+      <p th:if="${#fields.hasErrors('adresse.complement')}" th:errors="*{adresse.complement}"><br> 
+      
+      <label for="type_rue">type de rue :</label>	
+      <input type="text" id="type_rue"  th:field="*{adresse.type_rue}" />
+      <p th:if="${#fields.hasErrors('adresse.type_rue')}" th:errors="*{adresse.type_rue}"><br>
+      </fieldset>
+      <fieldset>
+      <legend>Apparence</legend>
+     <label for="taille">Taille </label>
+     <input type="text" id="taille" th:field="*{apparence.taille}" />
+     <p th:if="${#fields.hasErrors('apparence.taille')}" th:errors="*{apparence.taille}"></p><br>
+     
+     <label for="masse">masse</label>
+    <input type="text" id="masse" th:field="*{apparence.masse}">
+     <p th:if="${#fields.hasErrors('apparence.masse')}" th:errors="*{apparence.masse}"></p><br>
+     
+      <label for="yeux"> yeux </label>
+      <input type="text" id="ville" th:field="*{apparence.yeux}"/>
+      <p th:if="${#fields.hasErrors('apparence.yeux')}" th:errors="*{apparence.yeux}"></p><br> 
+      
+      <label for="origine"> origine </label>
+      <input type="text"id="origine" th:field="*{apparence.origine}" />
+      <p th:if="${#fields.hasErrors('apparence.origine')}" th:errors="*{apparence.origine}"><br>
+      
+      <label for="type_cheveux">type_cheveux :</label>
+      <input type="text" id="type_cheveux" th:field="*{adresse.type_cheveux}"/>
+      <p th:if="${#fields.hasErrors('apparence.type_cheveux')}" th:errors="*{apparence.type_cheveux}"><br>      
+      <label for="couleur_cheveux">couleur_cheveux </label>
+      <input type="text" id="couleur_cheveux" th:field="*{apparence.couleur_cheveuxt}" />
+      <p th:if="${#fields.hasErrors('apparence.couleur_cheveux')}" th:errors="*{apparence.couleur_cheveux}"><br>       
+      </fieldset>
+      <fieldset>
+      <legend>Photo</legend>
+     <label for="lien">Lien </label>
+     <input type="text" id="lien" th:field="*{photo.lien}" />
+     <p th:if="${#fields.hasErrors('photo.lien')}" th:errors="*{photo.lien}"></p><br>     
+     <label for="note">note</label>
+    <input type="text" id="note" th:field="*{photo.note}">
+     <p th:if="${#fields.hasErrors('photo.note')}" th:errors="*{photo.note}"></p><br> 
+     <a href="lien_vers_ton_fichier">Télécharger vos photos</a>
+      </fieldset>
+       <fieldset>
+      <legend>Centre_Interet</legend>
+     <label for="sport">Sport </label>
+     <input type="text" id="sport" th:field="*{centre_interet.sport}" />
+     <p th:if="${#fields.hasErrors('centre_interet.sport')}" th:errors="*{centre_interet.sport}"></p><br>     
+     <label for="loisir">loisir</label>
+    <input type="text" id="loisir" th:field="*{centre_interet.loisir}">
+     <p th:if="${#fields.hasErrors('centre_interet.loisir')}" th:errors="*{centre_interet.loisir}"></p><br> 
+      </fieldset>
+      <fieldset>
+      <legend>Multimedia</legend>
+     <label for="typeMultimedia">typeMultimedia </label>
+     <input type="text" id="typeMultimedia" th:field="*{multimedia.typeMultimedia}" />
+     <p th:if="${#fields.hasErrors('multimedia.typeMultimedia')}" th:errors="*{multimedia.typeMultimedia}"></p><br>     
+     <label for="genre">genre</label>
+    <input type="text" id="genre" th:field="*{multimedia.genre}">
+     <p th:if="${#fields.hasErrors('multimedia.genre')}" th:errors="*{multimedia.genre}"></p><br>     
+      <label for="titre"> titre </label>
+      <input type="text" id="titre" th:field="*{multimedia.titre}"/>
+      <p th:if="${#fields.hasErrors('multimedia.titre')}" th:errors="*{multimedia.titre}"></p><br>       
+      <label for="artiste"> artiste </label>
+      <input type="text"id="artiste" th:field="*{multimedia.artiste}" />
+      <p th:if="${#fields.hasErrors('multimedia.artiste')}" th:errors="*{multimedia.artiste}"><br>
+      </fieldset>
+      <input type="submit" value="Envoyer">
+</form>
+</body>
+</html>

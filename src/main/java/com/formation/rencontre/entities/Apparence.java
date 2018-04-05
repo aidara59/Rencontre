@@ -100,6 +100,10 @@ public String toString() {
 public Apparence() {
 	
 }
+public static Object values() {
+	
+	return null;
+}
 
 
 }

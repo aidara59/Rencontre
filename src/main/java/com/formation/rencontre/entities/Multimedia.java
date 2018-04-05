@@ -75,6 +75,10 @@ public String toString() {
 public Multimedia() {
 	
 }
+public static Object values() {
+	
+	return null;
+}
 
 
 }

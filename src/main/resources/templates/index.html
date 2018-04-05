@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <title>Mon site</title>
@@ -11,69 +11,14 @@ backrground-repeat:no-repeat;
 position:absolute;
 z-index: -1;
 }
+h1{color: blue;}
 </style>
 </head>
 <body>
-<h1>Bienvenue sur le site de Rencontre</h1>
+<h1>Bienvenue sur le Site de Rencontre</h1>
 <img alt="photo" src="image/couple.jpg " class="img1">
-
-<form method="post" action="">
- 
-   <fieldset>
-       <legend>Vos coordonnées</legend> <!-- Titre du fieldset --> 
-
-       <label for="nom"> Nom </label>
-       <input type="text" name="nom" id="nom" /><br>
-       <label for="prenom"> Prénom </label>
-       <input type="text" name="prenom" id="prenom" /><br>
-       <label for="Adresse"> Votre Adresse </label>
-       <input type="text" name="Adresse" id="Adresse" /><br> 
-       <label for="email"> Votre e-mail </label>
-       <input type="text" name="email" id="email" /><br>
-       <label for="pass">Votre mot de passe :</label>
-       <input type="password" name="pass" id="pass" /><br>
-       <label for="Situation">Situation</label>
-       <input type="text" name="Situation" id="Situation" /><br>
-		<label for="pseudo">Votre pseudo :</label>	
-       <input type="text" name="pseudo" id="pseudo" /><br>
-       <label>Date de Naissance</label>
-       <input type="date" /><br>
-       <p>
-           Vous étes :
-           <input type="radio" name="souhait" value="hétéro" id="hétéro" /> <label for="hétéro">hétéro</label>
-           <input type="radio" name="souhait" value="gay" id="gay" /> <label for="gay">gay</label>
-           <input type="radio" name="souhait" value="bisexuel" id="bisexuel" /> <label for="bisexuel">bisexuel</label>
-           <input type="radio" name="souhait" value="homosexuel" id="homosexuel" /> <label for="homosexuel">homosexuel</label>
-           <input type="radio" name="souhait" value="lesbienne" id="lesbienne" /> <label for="lesbienne">lesbienne</label>
-           <input type="radio" name="souhait" value="transexuel" id="transexuel" /> <label for="transexuel">transexuel</label>
-       </p>
-       <p>
-           <label for="precisions">Si "Autre", veuillez préciser :</label>
-           <textarea name="precisions" id="precisions" cols="40" rows="4"></textarea>
-           
-       </p>
-       <p>
-       <label for="souhait">je suis à la recherche de: </label><br />
-       <select name="recherche" id="recherche">
-           <option value="héréro">héréro</option>
-           <option value="gay">Gay</option>
-           <option value="Homme">Homme</option>
-           <option value="Femme">Femme</option>
-           <option value="Lesbienne">Lesbienne</option>
-           <option value="Transexuel">Transexuel</option>
-           <option value="Bisexuel">Bisexuel</option>
-           <option value="tout">tout</option>
-       </select><br>
-       Indiquer la tranche d'age :<br />
-       <input type="radio" name="age" value="18" id="18" /> <label for="18">18 ans</label><br />
-       <input type="radio" name="age" value="medium18-25" id="medium18-25" /> <label for="medium18-25">18-25 ans</label><br />
-       <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 ans</label><br />
-       <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Encore plus vieux que ça ?!</label>
-       
-       
-       </p>
-       <input type="submit" value="Envoyer" />
-   </fieldset>
-</form>
+<a th:href=@{/formulaire}>Veuillez-vous inscrire pour commencer</a><br>
+<a th:href=@{/formulaire}> Aller à la page Accueil</a><br>
+<a th:href=@{/formulaire}> Contact</a>
 </body>
 </html>

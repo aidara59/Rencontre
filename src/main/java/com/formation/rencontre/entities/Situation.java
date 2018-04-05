@@ -99,5 +99,9 @@ public String toString() {
 public Situation() {
 	
 }
+public static Object values() {
+	
+	return null;
+}
 
 }
