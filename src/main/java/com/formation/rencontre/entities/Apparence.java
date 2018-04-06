@@ -15,7 +15,7 @@ public class Apparence {
 @Id
 @Column(name="idapparence", unique= true, nullable= false)
 @GeneratedValue(strategy=GenerationType.AUTO)	
-private int idapparence;
+private Long idapparence;
 @Column(name="taille",nullable=false,length=5)
 private float taille;
 @Column(name="masse",nullable=false,length=5)
@@ -30,10 +30,10 @@ private String type_cheveux;
 private String couleur_cheveux;
 @OneToMany
 private List<Utilisateur> utilisateurs;
-public int getIdapparence() {
+public Long getIdapparence() {
 	return idapparence;
 }
-public void setIdapparence(int idapparence) {
+public void setIdapparence(Long idapparence) {
 	this.idapparence = idapparence;
 }
 public float getTaille() {
@@ -78,7 +78,7 @@ public List<Utilisateur> getUtilisateurs() {
 public void setUtilisateurs(List<Utilisateur> utilisateurs) {
 	this.utilisateurs = utilisateurs;
 }
-public Apparence(int idapparence, float taille, float masse, String yeux, String origine, String type_cheveux,
+public Apparence(Long idapparence, float taille, float masse, String yeux, String origine, String type_cheveux,
 		String couleur_cheveux, List<Utilisateur> utilisateurs) {
 	super();
 	this.idapparence = idapparence;

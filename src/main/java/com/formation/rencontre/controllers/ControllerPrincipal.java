@@ -3,7 +3,6 @@ import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.formation.rencontre.entities.Adresse;
 import com.formation.rencontre.entities.Apparence;
 import com.formation.rencontre.entities.Centre_Interet;
@@ -29,18 +27,32 @@ import com.formation.rencontre.services.SituationService;
 import com.formation.rencontre.services.UtilisateurService;
 @Controller
 public class ControllerPrincipal {
+	private AdresseService adresseService;
+	private ApparenceService apparenceService;
+	private Centre_InteretService ciService;
+	private MultimediaService mlService;
+	private PhotoService photoService;
+	private SituationService situationService;
+	private UtilisateurService utilisateurService;
+
 	@Autowired
-	private AdresseService adres;
-	private ApparenceService app;
-	private Centre_InteretService cis;
-	private MultimediaService mls;
-	private PhotoService phs;
-	private SituationService ss;
-	private UtilisateurService us;
+	
 	@GetMapping("/")
 	public String index() {
 
 		return "index";
+	}
+	public ControllerPrincipal(AdresseService adresseService, ApparenceService apparenceService,
+			Centre_InteretService ciService, MultimediaService mlService, PhotoService photoService,
+			SituationService situationService, UtilisateurService utilisateurService) {
+		super();
+		this.adresseService = adresseService;
+		this.apparenceService = apparenceService;
+		this.ciService = ciService;
+		this.mlService = mlService;
+		this.photoService = photoService;
+		this.situationService = situationService;
+		this.utilisateurService = utilisateurService;
 	}
 	@GetMapping("/formulaire")
 	public ModelAndView  formulaire() {
@@ -66,23 +78,21 @@ public class ControllerPrincipal {
         if (utilisateurResult.hasErrors() || adresseResult.hasErrors() ||
                 situationResult.hasErrors() || apparenceResult.hasErrors() ||
                 photoResult.hasErrors() || centre_interetResult.hasErrors()) {
-           // model.addAttribute("adresse", Adresse.values());
-           //model.addAttribute("apparence", Apparence.values());
-           //model.addAttribute("situation", Situation.values());
-           //model.addAttribute("multimedia", Multimedia.values());
-           // model.addAttribute("photo", Photo.values());
-           // model.addAttribute("centre_interet", Centre_Interet.values());           
+                     
             return "formulaire";
         }
-        SituationService.save(situation);
+        situationService.save(situation);
         utilisateur.setSituation(situation);
-        ApparenceService.save(apparence);
+        apparenceService.save(apparence);
         utilisateur.setApparence(apparence);
-        AdresseService.save(apparence);
+        adresseService.save(adresse);
         utilisateur.setAdresse(adresse);
-        UtilisateurService.save(utilisateur);
-        PhotoService.save(photo);
+        utilisateur.setType(1);
+        photoService.save(photo);
         photo.setUtilisateur(utilisateur); 
+        ciService.save(centreInteret);
+        mlService.save(multimedia);
+        utilisateurService.save(utilisateur);
         return "connexion";
              
     }	
@@ -94,8 +104,7 @@ public class ControllerPrincipal {
 		if(time==null)
 		{
 			time= LocalDateTime.now();
-			httpsession.setAttribute(sessionKey, time);
-			
+			httpsession.setAttribute(sessionKey, time);		
 		}
 		httpsession.setAttribute("name", sessionKey);
 		httpsession.setAttribute("email", user.getEmail());

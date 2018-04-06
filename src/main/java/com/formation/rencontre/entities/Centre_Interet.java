@@ -14,7 +14,7 @@ public class Centre_Interet {
 @Id
 @Column(name="idinteret", unique= true, nullable= false)
 @GeneratedValue(strategy=GenerationType.AUTO)		
-private int idinteret;
+private Long idinteret;
 @Column(name="sport",nullable=false,length=10)
 private String sport;
 @Column(name="loisir",nullable=false,length=10)
@@ -23,10 +23,10 @@ private String loisir;
 private List<Utilisateur> utilisateur;
 @ManyToMany(mappedBy="centre_interet")
 private List<Multimedia>multimedia;
-public int getIdinteret() {
+public Long getIdinteret() {
 	return idinteret;
 }
-public void setIdinteret(int idinteret) {
+public void setIdinteret(Long idinteret) {
 	this.idinteret = idinteret;
 }
 public String getSport() {
@@ -41,7 +41,7 @@ public String getLoisir() {
 public void setLoisir(String loisir) {
 	this.loisir = loisir;
 }
-public Centre_Interet(int idinteret, String sport, String loisir) {
+public Centre_Interet(Long idinteret, String sport, String loisir) {
 	super();
 	this.idinteret = idinteret;
 	this.sport = sport;

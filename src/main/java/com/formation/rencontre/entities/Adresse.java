@@ -14,11 +14,11 @@ public class Adresse {
 @Id
 @Column(name="idadress", unique= true, nullable= false)
 @GeneratedValue(strategy=GenerationType.AUTO)	
-private int idadress;
+private Long idadress;
 @Column(name="code_postal",nullable=false,length=5)
-private int code_postal;
+private Integer code_postal;
 @Column(name="num_rue",nullable=false,length=5)
-private int num_rue;
+private Integer num_rue;
 @Column(name="ville",nullable=false,length=10)
 private String ville;
 @Column(name="nom_rue",nullable=false,length=10)
@@ -31,7 +31,7 @@ private String complement;
 private String type_rue;
 @OneToMany
 private List<Utilisateur> utilisateur;
-public Adresse(int idadress, int code_postal, int num_rue, String ville, String nom_rue, String prefixe,
+public Adresse(Long idadress, Integer code_postal, Integer num_rue, String ville, String nom_rue, String prefixe,
 		String complement, String type_rue, List<Utilisateur> utilisateur) {
 	super();
 	this.idadress = idadress;
@@ -52,27 +52,27 @@ public String toString() {
 			+ type_rue + ", utilisateur=" + utilisateur + "]";
 }
 
-public int getIdadress() {
+public Long getIdadress() {
 	return idadress;
 }
 
-public void setIdadress(int idadress) {
+public void setIdadress(Long idadress) {
 	this.idadress = idadress;
 }
 
-public int getCode_postal() {
+public Integer getCode_postal() {
 	return code_postal;
 }
 
-public void setCode_postal(int code_postal) {
+public void setCode_postal(Integer code_postal) {
 	this.code_postal = code_postal;
 }
 
-public int getNum_rue() {
+public Integer getNum_rue() {
 	return num_rue;
 }
 
-public void setNum_rue(int num_rue) {
+public void setNum_rue(Integer num_rue) {
 	this.num_rue = num_rue;
 }
 

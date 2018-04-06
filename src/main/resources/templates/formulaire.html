@@ -26,23 +26,23 @@
       
       <label for="email"> Votre e-mail </label>
       <input type="text"id="email" th:field="*{utilisateur.email}" />
-      <p th:if="${#fields.hasErrors('utilisateur.email')}" th:errors="*{utilisateur.email}"><br>
+      <p th:if="${#fields.hasErrors('utilisateur.email')}" th:errors="*{utilisateur.email}"></p><br>
       
       <label for="motDePasse">Mot de passe :</label>
       <input type="password" id="motDePasse" th:field="*{utilisateur.motDePasse}"/>
-      <p th:if="${#fields.hasErrors('utilisateur.motDePasse')}" th:errors="*{utilisateur.motDePasse}"><br>
+      <p th:if="${#fields.hasErrors('utilisateur.motDePasse')}" th:errors="*{utilisateur.motDePasse}"></p><br>
       
       <label for="description">Description </label>
       <input type="text" id="description" th:field="*{utilisateur.description}" />
-      <p th:if="${#fields.hasErrors('utilisateur.description')}" th:errors="*{utilisateur.description}"><br> 
+      <p th:if="${#fields.hasErrors('utilisateur.description')}" th:errors="*{utilisateur.description}"></p><br> 
       
       <label for="pseudo">Votre pseudo :</label>	
       <input type="text" id="pseudo"  th:field="*{utilisateur.pseudo}" />
-      <p th:if="${#fields.hasErrors('utilisateur.pseudo')}" th:errors="*{utilisateur.pseudo}"><br>
+      <p th:if="${#fields.hasErrors('utilisateur.pseudo')}" th:errors="*{utilisateur.pseudo}"></p><br>
       
       <label for="numerotel">Tel :</label>	
       <input type="text" id="numerotel" th:field="*{utilisateur.numerotel}" />
-      <p th:if="${#fields.hasErrors('utilisateur.numerotel')}" th:errors="*{utilisateur.numerotel}"><br>
+      <p th:if="${#fields.hasErrors('utilisateur.numerotel')}" th:errors="*{utilisateur.numerotel}"></p><br>
       </fieldset>
       <fieldset>
       <legend>Adresse</legend>  
@@ -60,19 +60,19 @@
       
       <label for="nom_rue"> nom de rue </label>
       <input type="text"id="nom_rue" th:field="*{adresse.nom_rue}" />
-      <p th:if="${#fields.hasErrors('adresse.nom_rue')}" th:errors="*{adresse.nom_rue}"><br>
+      <p th:if="${#fields.hasErrors('adresse.nom_rue')}" th:errors="*{adresse.nom_rue}"></p><br>
       
       <label for="prefixe">prefixe :</label>
       <input type="text" id="prefixe" th:field="*{adresse.prefixe}"/>
-      <p th:if="${#fields.hasErrors('adresse.prefixe')}" th:errors="*{adresse.prefixe}"><br>
+      <p th:if="${#fields.hasErrors('adresse.prefixe')}" th:errors="*{adresse.prefixe}"></p><br>
       
       <label for="complement">complement </label>
       <input type="text" id="complement" th:field="*{adresse.complement}" />
-      <p th:if="${#fields.hasErrors('adresse.complement')}" th:errors="*{adresse.complement}"><br> 
+      <p th:if="${#fields.hasErrors('adresse.complement')}" th:errors="*{adresse.complement}"></p><br> 
       
       <label for="type_rue">type de rue :</label>	
       <input type="text" id="type_rue"  th:field="*{adresse.type_rue}" />
-      <p th:if="${#fields.hasErrors('adresse.type_rue')}" th:errors="*{adresse.type_rue}"><br>
+      <p th:if="${#fields.hasErrors('adresse.type_rue')}" th:errors="*{adresse.type_rue}"></p><br>
       </fieldset>
       <fieldset>
       <legend>Apparence</legend>
@@ -90,14 +90,14 @@
       
       <label for="origine"> origine </label>
       <input type="text"id="origine" th:field="*{apparence.origine}" />
-      <p th:if="${#fields.hasErrors('apparence.origine')}" th:errors="*{apparence.origine}"><br>
+      <p th:if="${#fields.hasErrors('apparence.origine')}" th:errors="*{apparence.origine}"></p><br>
       
       <label for="type_cheveux">type_cheveux :</label>
-      <input type="text" id="type_cheveux" th:field="*{adresse.type_cheveux}"/>
-      <p th:if="${#fields.hasErrors('apparence.type_cheveux')}" th:errors="*{apparence.type_cheveux}"><br>      
+      <input type="text" id="type_cheveux" th:field="*{apparence.type_cheveux}"/>
+      <p th:if="${#fields.hasErrors('apparence.type_cheveux')}" th:errors="*{apparence.type_cheveux}"></p><br>      
       <label for="couleur_cheveux">couleur_cheveux </label>
-      <input type="text" id="couleur_cheveux" th:field="*{apparence.couleur_cheveuxt}" />
-      <p th:if="${#fields.hasErrors('apparence.couleur_cheveux')}" th:errors="*{apparence.couleur_cheveux}"><br>       
+      <input type="text" id="couleur_cheveux" th:field="*{apparence.couleur_cheveux}" />
+      <p th:if="${#fields.hasErrors('apparence.couleur_cheveux')}" th:errors="*{apparence.couleur_cheveux}"></p><br>       
       </fieldset>
       <fieldset>
       <legend>Photo</legend>
@@ -131,7 +131,34 @@
       <p th:if="${#fields.hasErrors('multimedia.titre')}" th:errors="*{multimedia.titre}"></p><br>       
       <label for="artiste"> artiste </label>
       <input type="text"id="artiste" th:field="*{multimedia.artiste}" />
-      <p th:if="${#fields.hasErrors('multimedia.artiste')}" th:errors="*{multimedia.artiste}"><br>
+      <p th:if="${#fields.hasErrors('multimedia.artiste')}" th:errors="*{multimedia.artiste}"></p><br>
+      </fieldset>
+      
+      <fieldset>
+      <legend>Situation</legend>
+     <label for="statutPro">statutPro </label>
+     <input type="text" id="statutPro" th:field="*{situation.statutPro}" />
+     <p th:if="${#fields.hasErrors('situation.statutPro')}" th:errors="*{situation.statutPro}"></p><br>
+     
+     <label for="statutPerso">statutPerso</label>
+    <input type="text" id="statutPerso" th:field="*{situation.statutPerso}">
+     <p th:if="${#fields.hasErrors('situation.statutPerso')}" th:errors="*{situation.statutPerso}"></p><br>
+     
+      <label for="nbreEnfant"> nbreEnfant </label>
+      <input type="text" id="nbreEnfant" th:field="*{situation.nbreEnfant}"/>
+      <p th:if="${#fields.hasErrors('situation.nbreEnfant')}" th:errors="*{situation.nbreEnfant}"></p><br> 
+      
+      <label for="orientation"> orientation </label>
+      <input type="text"id="orientation" th:field="*{situation.orientation}" />
+      <p th:if="${#fields.hasErrors('situation.orientation')}" th:errors="*{situation.orientation}"></p><br>
+      
+      <label for="fumeur">fumeur :</label>
+      <input type="text" id="fumeur" th:field="*{situation.fumeur}"/>
+      <p th:if="${#fields.hasErrors('situation.fumeur')}" th:errors="*{situation.fumeur}"></p><br> 
+           
+      <label for="alcool">alcool </label>
+      <input type="text" id="alcool" th:field="*{situation.alcool}"/>
+      <p th:if="${#fields.hasErrors('situation.alcool')}" th:errors="*{situation.alcool}"></p><br>       
       </fieldset>
       <input type="submit" value="Envoyer">
 </form>

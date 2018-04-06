@@ -15,25 +15,25 @@ public class Situation {
 @Id
 @Column(name="idsituation", unique= true, nullable= false)
 @GeneratedValue(strategy=GenerationType.AUTO)		
-private int idsituation;
-@Column(name="statutPro",nullable=false,length=10)
+private Long idsituation;
+@Column(length=10)
 private String statutPro;
-@Column(name="statutPerso",nullable=false,length=10)
+@Column(length=10)
 private String statutPerso;
-@Column(name="nbreEnfant",nullable=false,length=2)
-private int nbreEnfant;
-@Column(name="orientation",nullable=false,length=10)
+@Column(length=2)
+private Integer nbreEnfant;
+@Column(length=10)
 private String orientation;
-@Column(name="fumeur",nullable=false,length=10)
+@Column(length=10)
 private String fumeur;
-@Column(name="alcool",nullable=false,length=10)
+@Column(length=10)
 private String alcool;
 @OneToMany
 public List<Utilisateur>utilisateur;
-public int getIdsituation() {
+public Long getIdsituation() {
 	return idsituation;
 }
-public void setIdsituation(int idsituation) {
+public void setIdsituation(Long idsituation) {
 	this.idsituation = idsituation;
 }
 public String getStatutPro() {
@@ -48,10 +48,10 @@ public String getStatutPerso() {
 public void setStatutPerso(String statutPerso) {
 	this.statutPerso = statutPerso;
 }
-public int getNbreEnfant() {
+public Integer getNbreEnfant() {
 	return nbreEnfant;
 }
-public void setNbreEnfant(int nbreEnfant) {
+public void setNbreEnfant(Integer nbreEnfant) {
 	this.nbreEnfant = nbreEnfant;
 }
 public String getOrientation() {
@@ -78,7 +78,7 @@ public List<Utilisateur> getUtilisateur() {
 public void setUtilisateur(List<Utilisateur> utilisateur) {
 	this.utilisateur = utilisateur;
 }
-public Situation(int idsituation, String statutPro, String statutPerso, int nbreEnfant, String orientation,
+public Situation(Long idsituation, String statutPro, String statutPerso, Integer nbreEnfant, String orientation,
 		String fumeur, String alcool, List<Utilisateur> utilisateur) {
 	super();
 	this.idsituation = idsituation;

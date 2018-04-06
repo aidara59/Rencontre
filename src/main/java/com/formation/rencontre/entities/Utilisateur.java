@@ -19,8 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "Utilisateur")
 public class Utilisateur {
 	@Id
-	@Column(name="email", unique= true, nullable= false)
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(unique= true, nullable= false)
 	private String email;
 	@Column(name="nom",nullable=false,length=25)
 	private String nom;
@@ -183,6 +182,10 @@ public class Utilisateur {
 	public static Object values() {
 		
 		return null;
+	}
+	public void saveAll() {
+		
+		
 	}
 
 }
