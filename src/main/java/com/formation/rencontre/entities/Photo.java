@@ -17,7 +17,7 @@ public class Photo {
 private Long idphoto;
 @Column(name="clien",nullable=false,length=10)
 private String lien;
-@Column(name="note",nullable=false,length=2)
+@Column(length=2)
 private Integer note;
 @ManyToOne
 private Utilisateur utilisateur;
@@ -57,7 +57,6 @@ public static Object values() {
 	return null;
 }
 public void setUtilisateur(@Valid Utilisateur utilisateur2) {
-	// TODO Auto-generated method stub
 	
 }
 

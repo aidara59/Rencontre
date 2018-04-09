@@ -5,7 +5,7 @@
 <title>formulaire</title>
 </head>
 <body style="background:yellowgreen;">
-<form method="post" th:action="@{/formulaire}" >
+<form method="post" th:action="@{/formulaire}" enctype="multipart/form-data" >
    <fieldset>
     <legend>Utilisateur</legend>
     <label for="nom">Nom</label>
@@ -102,12 +102,12 @@
       <fieldset>
       <legend>Photo</legend>
      <label for="lien">Lien </label>
-     <input type="text" id="lien" th:field="*{photo.lien}" />
+     <input type="file" id="lien" name="file" />
      <p th:if="${#fields.hasErrors('photo.lien')}" th:errors="*{photo.lien}"></p><br>     
      <label for="note">note</label>
     <input type="text" id="note" th:field="*{photo.note}">
      <p th:if="${#fields.hasErrors('photo.note')}" th:errors="*{photo.note}"></p><br> 
-     <a href="lien_vers_ton_fichier">Télécharger vos photos</a>
+     
       </fieldset>
        <fieldset>
       <legend>Centre_Interet</legend>

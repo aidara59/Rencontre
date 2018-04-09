@@ -1,8 +1,15 @@
 package com.formation.rencontre.controllers;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +17,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.formation.rencontre.entities.Adresse;
 import com.formation.rencontre.entities.Apparence;
 import com.formation.rencontre.entities.Centre_Interet;
@@ -27,6 +37,7 @@ import com.formation.rencontre.services.SituationService;
 import com.formation.rencontre.services.UtilisateurService;
 @Controller
 public class ControllerPrincipal {
+	private static final String UPLOADED_FOLDER = "C://Users//Formation.M2I-JAV5-04//eclipse-workspace//Rencontre//src//main//resources//static//image";
 	private AdresseService adresseService;
 	private ApparenceService apparenceService;
 	private Centre_InteretService ciService;
@@ -37,7 +48,6 @@ public class ControllerPrincipal {
 	@Autowired	
 	@GetMapping("/")
 	public String index() {
-
 		return "index";
 	}
 	public ControllerPrincipal(AdresseService adresseService, ApparenceService apparenceService,
@@ -72,6 +82,7 @@ public class ControllerPrincipal {
                                @Valid @ModelAttribute(value = "multimedia") Multimedia multimedia, BindingResult multimediaResult,
                                @Valid @ModelAttribute(value = "photo") Photo photo, BindingResult photoResult,
                                @Valid @ModelAttribute(value = "centre_interet") Centre_Interet centreInteret, BindingResult centre_interetResult,
+                               @RequestParam("file") MultipartFile file,
                                ModelMap model) {
         if (utilisateurResult.hasErrors() || adresseResult.hasErrors() ||
                 situationResult.hasErrors() || apparenceResult.hasErrors() ||
@@ -86,14 +97,43 @@ public class ControllerPrincipal {
         adresseService.save(adresse);
         utilisateur.setAdresse(adresse);
         utilisateur.setType(1);
+        
+        List<Photo> photos = new ArrayList<Photo>();
+		Photo picture=upload(file); 
+		
+		photoService.save(picture);
+		photos.add(picture);
+		utilisateur.setPhoto(photos);                                                                        
         photoService.save(photo);
         photo.setUtilisateur(utilisateur); 
         ciService.save(centreInteret);
-        mlService.save(multimedia);
+        mlService.save(multimedia);                                          
         utilisateurService.save(utilisateur);
         return "connexion";
              
     }	
+	public Photo upload(MultipartFile file) {
+		// if (file.isEmpty()) {
+		// redirectAttributes.addFlashAttribute("message", "Please select an image");
+		// return "error";
+		// }
+		Photo pic = new Photo();
+		try {
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+			Files.write(path, bytes);
+
+                                   
+				pic.setLien(file.getOriginalFilename());                                                                           
+				System.out.println(file.getOriginalFilename());
+
+	
+				
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pic;
+	}
 	public void session(HttpSession httpsession, Utilisateur user)
 	{
 		String sessionKey="dating";
@@ -107,6 +147,7 @@ public class ControllerPrincipal {
 		httpsession.setAttribute("name", sessionKey);
 		httpsession.setAttribute("email", user.getEmail());
 		httpsession.setAttribute("pseudo", user.getPseudo());
+		httpsession.setAttribute("photo", user.getPhoto().get(0));
 		httpsession.setMaxInactiveInterval(60*30);
 	}
 
