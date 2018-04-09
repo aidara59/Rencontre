@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Mon site</title>
+<style type="">
+.img1{
+width:100%;
+heigth:auto;
+backrground-repeat:no-repeat;
+position:absolute;
+z-index: -1;
+}
+h1{color: blue;}
+</style>
+</head>
+<body>
+<h1>Bienvenue sur le Site de Rencontre</h1>
+<img alt="photo" src="image/couple.jpg " class="img1">
+<a th:href=@{/formulaire}>Veuillez-vous inscrire pour commencer</a><br>
+<a th:href=@{/formulaire}> Aller à la page Accueil</a><br>
+<a th:href=@{/formulaire}> Contact</a>
+</body>
+</html>

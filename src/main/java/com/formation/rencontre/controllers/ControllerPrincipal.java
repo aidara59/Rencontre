@@ -34,9 +34,7 @@ public class ControllerPrincipal {
 	private PhotoService photoService;
 	private SituationService situationService;
 	private UtilisateurService utilisateurService;
-
-	@Autowired
-	
+	@Autowired	
 	@GetMapping("/")
 	public String index() {
 
