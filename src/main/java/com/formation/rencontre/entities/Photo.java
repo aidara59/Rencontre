@@ -15,7 +15,7 @@ public class Photo {
 @Column(name="idphoto", unique= true, nullable= false)
 @GeneratedValue(strategy=GenerationType.AUTO)		
 private Long idphoto;
-@Column(name="clien",nullable=false,length=10)
+@Column(length=10)
 private String lien;
 @Column(length=2)
 private Integer note;

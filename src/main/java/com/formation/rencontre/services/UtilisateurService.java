@@ -17,5 +17,9 @@ public class UtilisateurService {
     	return utilisateurRepository.save(utilisateur);}
     public Utilisateur findUtilisateur(String email){
     	return utilisateurRepository.getOne(email);}
+	public static UtilisateurService findByUtilisateurByemail(String email) {
+		
+		return null;
+	}
 }
 

@@ -187,6 +187,10 @@ public class Utilisateur {
 		
 		
 	}
+	public static Utilisateur findUtilisateurByemail(String email2) {
+		
+		return null;
+	}
 
 }
 
